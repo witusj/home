@@ -20,12 +20,12 @@
         <div class="form-group">
             <label for="inputMat">Looptijd hypotheek</label>
             <input type="number" class="form-control" id="inputMat" placeholder="Hoeveel jaar wil je lenen?" value="30">
-            <small id="matHelp" class="form-text text-muted">Vul hier de looptijd van de lening in</small>
+            <small id="matHelp" class="form-text text-muted">Vul hier de looptijd van de lening in (jaren)</small>
         </div>
         <div class="form-group">
             <label for="inputPerc">Rentepercentage</label>
             <input type="number" class="form-control" id="inputPerc" placeholder="Met welk rentepercentage wil je rekenen?" value="1.08">
-            <small id="percHelp" class="form-text text-muted">Vul hier de de hypotheekrente in</small>
+            <small id="percHelp" class="form-text text-muted">Vul hier de de hypotheekrente in op jaarbasis</small>
         </div>
         <button type="input" class="btn btn-primary" onclick="resCalc()">Bereken</button>
         <div class="alert alert-info mt-3" role="alert" id="resAnn">Bruto maandlast: .....</div>        
