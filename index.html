@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+<!-- <link rel="stylesheet" href="style.css"> -->
+<title>Home</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="form-group">
+            <label for="inputaMrge">Hypotheekbedrag</label>
+            <input type="number" class="form-control" id="inputMrge" aria-describedby="mrgeHelp" placeholder="Hoeveel wil je lenen?" value="240000">
+            <small id="mrgeHelp" class="form-text text-muted">Vul hier het bedrag in dat je wilt lenen</small>
+        </div>
+        <div class="form-group">
+            <label for="inputMat">Looptijd hypotheek</label>
+            <input type="number" class="form-control" id="inputMat" placeholder="Hoeveel jaar wil je lenen?" value="30">
+        </div>
+        <div class="form-group">
+            <label for="inputMat">Rentepercentage</label>
+            <input type="number" class="form-control" id="inputPerc" placeholder="Met welk rentepercentage wil je rekenen?" value="1.08">
+        </div>
+        <button type="input" class="btn btn-primary" onclick="resCalc()">Bereken</button>
+        <div class="alert alert-info mt-3" role="alert" id="resAnn">.....</div>        
+    </div>
+    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+    let resCalc = function() {
+        const formatter = new Intl.NumberFormat('nl-NL', {
+            style: 'currency',
+            currency: 'EUR',
+            minimumFractionDigits: 2
+        })
+        let amt = document.getElementById("inputMrge").value
+        let mat = document.getElementById("inputMat").value
+        let int = document.getElementById("inputPerc").value
+        let ann = calcMrg(amt, mat, int)
+        document.getElementById("resAnn").innerHTML = formatter.format(ann)
+    }
+    let calcMrg = function(amt, mat, int) {
+        let months = mat * 12
+        let intMonthly = Math.pow(1+int/100, 1/12) - 1
+        let annFcr = ((1 - Math.pow(1+intMonthly, -months)) / intMonthly).toPrecision(6)
+        let annVal = amt/annFcr
+        return(annVal.toFixed(2))
+    }
+</script>
+</body>
+</html>
