@@ -45,7 +45,7 @@
         let mat = document.getElementById("inputMat").value
         let int = document.getElementById("inputPerc").value
         let ann = calcMrg(amt, mat, int)
-        document.getElementById("resAnn").innerHTML = "Bruto maandlast per jaar: " + formatter.format(ann)
+        document.getElementById("resAnn").innerHTML = "Bruto maandlast: " + formatter.format(ann)
     }
     let calcMrg = function(amt, mat, int) {
         let months = mat * 12
