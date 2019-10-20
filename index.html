@@ -28,7 +28,7 @@
             <small id="percHelp" class="form-text text-muted">Vul hier de de hypotheekrente in</small>
         </div>
         <button type="input" class="btn btn-primary" onclick="resCalc()">Bereken</button>
-        <div class="alert alert-info mt-3" role="alert" id="resAnn">.....</div>        
+        <div class="alert alert-info mt-3" role="alert" id="resAnn">Bruto maandlast per jaar: .....</div>        
     </div>
     </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
@@ -45,7 +45,7 @@
         let mat = document.getElementById("inputMat").value
         let int = document.getElementById("inputPerc").value
         let ann = calcMrg(amt, mat, int)
-        document.getElementById("resAnn").innerHTML = formatter.format(ann)
+        document.getElementById("resAnn").innerHTML = "Bruto maandlast per jaar: " + formatter.format(ann)
     }
     let calcMrg = function(amt, mat, int) {
         let months = mat * 12
