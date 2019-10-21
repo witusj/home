@@ -79,6 +79,8 @@
                     document.getElementById('resAnn').innerHTML = "Bruto maandlast: " + responseData
                 });
             }
+
+            // From example: https://github.com/academind/xhr-fetch-axios-intro/blob/xhr/xhr.js
 			const sendHttpRequest = (method, url, data) => {
 				const promise = new Promise((resolve, reject) => {
 					const xhr = new XMLHttpRequest();
@@ -104,25 +106,6 @@
 				});
 				return promise;
 			};
-
-			// const sendData = () => {
-			//     url = "https:" + "//us-central1-bibiwitek-24257.cloudfunctions.net/hypotheekberekening?amt="
-			//         + amt
-			//         + "&mat="
-			//         + mat
-			//         + "&int="
-			//         +int
-			//   sendHttpRequest('POST', url, {
-			//     email: 'eve.holt@reqres.in'
-			//     // password: 'pistol'
-			//   })
-			//     .then(responseData => {
-			//       console.log(responseData);
-			//     })
-			//     .catch(err => {
-			//       console.log(err);
-			//     });
-			// };
 		</script>
 	</body>
 </html>
