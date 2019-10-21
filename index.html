@@ -45,16 +45,22 @@
         let amt = document.getElementById("inputMrge").value
         let mat = document.getElementById("inputMat").value
         let int = document.getElementById("inputPerc").value
-        let ann = calcMrg(amt, mat, int)
-        document.getElementById("resAnn").innerHTML = "Bruto maandlast: " + formatter.format(ann)
-    }
-
-    let calcMrg = function(amt, mat, int) {
-        let months = mat * 12
-        let intMonthly = Math.pow(1+int/100, 1/12) - 1
-        let annFcr = ((1 - Math.pow(1+intMonthly, -months)) / intMonthly).toPrecision(6)
-        let annVal = amt/annFcr
-        return(annVal.toFixed(2))
+        
+        url = "https:" + "//us-central1-clicklogs-29132.cloudfunctions.net/addClicks?amt="
+        + amt
+        + "&mat="
+        + mat
+        + "&int="
+        +int
+        var request = new XMLHttpRequest()
+        request.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("resAnn").innerHTML =
+                this.responseText;
+            }
+        }
+        request.open('GET', url);
+        request.send();
     }
 </script>
 </body>
