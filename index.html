@@ -76,9 +76,9 @@
                     int
                 
                 sendHttpRequest('GET', url).then(responseData => {
-                    document.getElementById('resAnn').innerHTML = responseData
+                    document.getElementById('resAnn').innerHTML = "Bruto maandlast: " + responseData
                 });
-
+            }
 			const sendHttpRequest = (method, url, data) => {
 				const promise = new Promise((resolve, reject) => {
 					const xhr = new XMLHttpRequest();
