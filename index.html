@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 <!-- <link rel="stylesheet" href="style.css"> -->
-<title>Home</title>
+<title>Bibi & Witek</title>
 </head>
 <body>
     <div class="container-fluid">
@@ -47,6 +47,7 @@
         let ann = calcMrg(amt, mat, int)
         document.getElementById("resAnn").innerHTML = "Bruto maandlast: " + formatter.format(ann)
     }
+
     let calcMrg = function(amt, mat, int) {
         let months = mat * 12
         let intMonthly = Math.pow(1+int/100, 1/12) - 1
