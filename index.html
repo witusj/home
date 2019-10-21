@@ -46,12 +46,13 @@
         let mat = document.getElementById("inputMat").value
         let int = document.getElementById("inputPerc").value
         
-        url = "https:" + "//us-central1-clicklogs-29132.cloudfunctions.net/addClicks?amt="
+        url = "https:" + "//us-central1-bibiwitek-24257.cloudfunctions.net/hypotheekberekening?amt="
         + amt
         + "&mat="
         + mat
         + "&int="
         +int
+        console.log(url)
         var request = new XMLHttpRequest()
         request.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
